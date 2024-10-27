@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1a237e 0%, #283593 50%, #303f9f 100%);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.scene {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.message {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.5);
+    z-index: 10;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.5);
+    }
+    to {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6);
+    }
+}
+
+.character {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    bottom: 80px;
+    left: -100px;
+    background-color: #FF69B4;
+    border-radius: 50% 50% 0 0;
+    animation: walk 8s linear infinite, bounce 0.5s ease-in-out infinite alternate;
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    background-color: #FFE4E1;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.hair {
+    width: 50px;
+    height: 60px;
+    background-color: #4A4A4A;
+    border-radius: 25px 25px 0 0;
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    animation: hairMove 0.5s ease-in-out infinite alternate;
+}
+
+.dress {
+    width: 60px;
+    height: 70px;
+    background-color: #FF1493;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    border-radius: 30px 30px 0 0;
+    animation: dressMove 0.5s ease-in-out infinite alternate;
+}
+
+.leg-left, .leg-right {
+    width: 10px;
+    height: 40px;
+    background-color: #FFE4E1;
+    position: absolute;
+    bottom: -40px;
+}
+
+.leg-left {
+    left: 35px;
+    animation: legLeft 0.5s ease-in-out infinite alternate;
+}
+
+.leg-right {
+    left: 55px;
+    animation: legRight 0.5s ease-in-out infinite alternate;
+}
+
+.arm-left, .arm-right {
+    width: 10px;
+    height: 40px;
+    background-color: #FFE4E1;
+    position: absolute;
+    top: 60px;
+}
+
+.arm-left {
+    left: 15px;
+    animation: armLeft 0.5s ease-in-out infinite alternate;
+}
+
+.arm-right {
+    right: 15px;
+    animation: armRight 0.5s ease-in-out infinite alternate;
+}
+
+.ground {
+    width: 100%;
+    height: 80px;
+    background-color: #1B5E20;
+    position: absolute;
+    bottom: 0;
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #FFF176, #FFEE58);
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    box-shadow: 0 0 50px #FFEE58, 0 0 100px rgba(255, 238, 88, 0.4);
+    animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+.stars {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 4px white;
+    border-radius: 50%;
+}
+
+@keyframes moonGlow {
+    from {
+        box-shadow: 0 0 50px #FFEE58, 0 0 100px rgba(255, 238, 88, 0.4);
+    }
+    to {
+        box-shadow: 0 0 70px #FFEE58, 0 0 120px rgba(255, 238, 88, 0.6);
+    }
+}
+
+@keyframes walk {
+    from { left: -100px; }
+    to { left: 100%; }
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+
+@keyframes hairMove {
+    from { transform: translateX(-2px); }
+    to { transform: translateX(2px); }
+}
+
+@keyframes dressMove {
+    from { transform: skewX(-3deg); }
+    to { transform: skewX(3deg); }
+}
+
+@keyframes legLeft {
+    from { transform: rotate(-20deg); }
+    to { transform: rotate(20deg); }
+}
+
+@keyframes legRight {
+    from { transform: rotate(20deg); }
+    to { transform: rotate(-20deg); }
+}
+
+@keyframes armLeft {
+    from { transform: rotate(-30deg); }
+    to { transform: rotate(30deg); }
+}
+
+@keyframes armRight {
+    from { transform: rotate(30deg); }
+    to { transform: rotate(-30deg); }
+}
